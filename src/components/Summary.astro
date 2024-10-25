@@ -1,0 +1,53 @@
+---
+import data from "@/data.json";
+---
+
+<div class="flex flex-col justify-center gap-6 px-8 py-6 md:px-10 md:py-9">
+  <h3 class="text-lg font-bold text-n-dark-gray-blue md:text-2xl">Summary</h3>
+
+  <div class="flex flex-col gap-4">
+    {
+      data.map((tab) => (
+        <div class={`flex h-14 items-center justify-between rounded-xl px-4 ${tab.category.toLowerCase()}`}>
+          <div class="flex items-center gap-3">
+            <img src={tab.icon} alt="" width="20" height="20" loading="lazy" />
+            <h4 class="font-medium md:text-lg">{tab.category}</h4>
+          </div>
+
+          <div class="flex gap-2 font-medium text-n-dark-gray-blue md:text-lg">
+            <span>{tab.score}</span>
+            <span class="opacity-50">/ 100</span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <button class="h-14 rounded-full bg-n-dark-gray-blue font-bold text-white md:mt-4 md:text-lg">Continue</button>
+</div>
+
+<style>
+  button:hover {
+    background: var(--Gradient-1, linear-gradient(180deg, #75f 0%, #6943ff 0.01%, #2f2ce9 100%));
+  }
+
+  .reaction {
+    background: var(--red-95-white, linear-gradient(0deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%), #f55);
+    @apply text-p-light-red;
+  }
+
+  .memory {
+    background: var(--yellow-95-white, linear-gradient(0deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%), #ffb21e);
+    @apply text-p-orange-yellow;
+  }
+
+  .verbal {
+    background: var(--green-95-white, linear-gradient(0deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%), #00bb8f);
+    @apply text-p-green-teal;
+  }
+
+  .visual {
+    background: var(--blue-95-white, linear-gradient(0deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%), #1125d6);
+    @apply text-p-cobalt-blue;
+  }
+</style>

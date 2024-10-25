@@ -1,16 +1,39 @@
 ---
-
+import Overall from "@/components/Overall.astro";
+import Summary from "@/components/Summary.astro";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="all" />
+    <title>Results Summary Component</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="preload"
+      as="style"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  </head>
+
+  <body class="flex h-fit min-h-screen w-full items-center justify-center font-hanken-grotesk md:bg-n-pale-blue">
+    <main class="w-full bg-white md:grid md:max-h-[32rem] md:max-w-[46rem] md:grid-cols-2 md:rounded-[2rem]">
+      <Overall />
+      <Summary />
+    </main>
+  </body>
 </html>
+
+<style>
+  @media screen and (min-width: 768px) {
+    main {
+      box-shadow: 0px 30px 60px 0px rgba(61, 108, 236, 0.15);
+    }
+  }
+</style>
